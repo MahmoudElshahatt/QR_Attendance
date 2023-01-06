@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/setup_nav"
+    app:startDestination="@id/scanQRFragment">
+
+    <fragment
+        android:id="@+id/scanQRFragment"
+        android:name="com.example.qrattendance.ScanQRFragment"
+        android:label="fragment_scan_q_r"
+        tools:layout="@layout/fragment_scan_q_r" />
+    <fragment
+        android:id="@+id/attendanceFragment"
+        android:name="com.example.qrattendance.AttendanceFragment"
+        android:label="fragment_attendance"
+        tools:layout="@layout/fragment_attendance" />
+    <fragment
+        android:id="@+id/createQRFragment"
+        android:name="com.example.qrattendance.CreateQRFragment"
+        android:label="fragment_create_q_r"
+        tools:layout="@layout/fragment_create_q_r" />
+</navigation>

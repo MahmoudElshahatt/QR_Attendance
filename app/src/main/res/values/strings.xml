@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">QR Attendance</string>
+    <string name="scan_qr">Scan QR</string>
+    <string name="create_qr">Create QR</string>
+    <string name="attendance">Attendance</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

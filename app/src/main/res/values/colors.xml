@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#DEDFE4</color>
+    <color name="colorPrimaryDark">#1A212B</color>
+    <color name="colorAccent">#2EA25E</color>
+    <color name="gray_700">#374053</color>
+    <color name="gray_500">#C3C3C3</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bottom_nav_color">#141A22</color>
+    <color name="tab_unselected_color">#7C7C7C</color>
+</resources>
