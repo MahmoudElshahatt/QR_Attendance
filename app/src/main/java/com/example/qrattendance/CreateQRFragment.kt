@@ -47,6 +47,7 @@ class CreateQRFragment : Fragment() {
                 Toast.makeText(requireContext(), "Enter a name, please", Toast.LENGTH_SHORT).show()
             } else {
                 binding.imgQR.setImageBitmap(generateQR())
+                requireActivity().hideKeypad()
             }
 
         }
@@ -65,7 +66,6 @@ class CreateQRFragment : Fragment() {
                     bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLACK else Color.WHITE)
                 }
             }
-
         } catch (e: WriterException) {
             e.printStackTrace()
         }
