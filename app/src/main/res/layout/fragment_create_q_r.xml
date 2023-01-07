@@ -1,15 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".CreateQRFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
+        android:id="@+id/et_attendant_name"
+        style="@style/roundInputTextField"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:hint="@string/type_a_name"
+        android:inputType="textPersonName|textCapSentences"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray_300" />
 
-</FrameLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_create_qr"
+        style="@style/AppButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="24dp"
+        android:foreground="?selectableItemBackground"
+        android:text="@string/create_qr" />
+
+    <ImageView
+        android:id="@+id/img_QR"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:padding="24dp"
+        tools:src="@tools:sample/avatars" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_download_qr"
+        style="@style/AppButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:foreground="?selectableItemBackground"
+        android:text="@string/download_qr" />
+</LinearLayout>
