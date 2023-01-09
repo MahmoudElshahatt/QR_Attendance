@@ -53,6 +53,8 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.5.2"
     //QR Library Generator
     implementation 'com.google.zxing:core:3.4.0'
+    //Baloon Library
+    implementation "com.github.skydoves:balloon:1.5.2"
 
 
 
