@@ -1,27 +1,28 @@
 package com.example.qrattendance
 
+import android.Manifest
+import android.content.ContentResolver
+import android.content.ContentValues
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.qrattendance.databinding.FragmentCreateQRBinding
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.WriterException
 import com.google.zxing.qrcode.QRCodeWriter
-import com.skydoves.balloon.ArrowPositionRules
-import com.skydoves.balloon.BalloonAnimation
-import com.skydoves.balloon.BalloonSizeSpec
-import com.skydoves.balloon.createBalloon
 import java.text.SimpleDateFormat
-import java.time.LocalTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -30,6 +31,7 @@ class CreateQRFragment : Fragment() {
     private lateinit var binding: FragmentCreateQRBinding
     private lateinit var contentToFormat: String
     private lateinit var contentToPresent: String
+    private val REQUEST_CODE = 1
     lateinit var bitmap: Bitmap
 
     private lateinit var nameInput: String
@@ -52,6 +54,7 @@ class CreateQRFragment : Fragment() {
     }
 
     private fun setOnClickListeners() {
+
         binding.btnCreateQr.setOnClickListener {
             getCurrentData()
             if (nameInput.isEmpty()) {
@@ -62,32 +65,92 @@ class CreateQRFragment : Fragment() {
                 binding.imgQR.isVisible = true
                 requireActivity().hideKeypad()
             }
-
         }
+
         binding.imgQR.setOnClickListener {
             if (it.isVisible) {
                 createBalloonAndShow(it)
             }
         }
+
+        binding.btnDownloadQr.setOnClickListener {
+            if (binding.imgQR.isVisible) {
+                checkPermissionsAndSave()
+            }
+        }
+
+    }
+
+    private fun checkPermissionsAndSave() {
+        if (ContextCompat.checkSelfPermission(
+                requireActivity(),
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            saveImage()
+        } else {
+            ActivityCompat.requestPermissions(
+                requireActivity(), arrayOf(
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ), REQUEST_CODE
+            )
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String?>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                saveImage()
+            } else {
+                Toast.makeText(
+                    requireActivity(),
+                    "Please provide required permissions",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    private fun saveImage() {
+        val contentResolver: ContentResolver = requireContext().contentResolver
+
+        val images: Uri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY);
+        } else {
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+        }
+
+        val contentValues = ContentValues()
+        contentValues.put(
+            MediaStore.Images.Media.DISPLAY_NAME,
+            "$contentToFormat.jpg"
+        )
+
+        contentValues.put(MediaStore.Images.Media.MIME_TYPE, "images/*");
+        val uri = contentResolver.insert(images, contentValues);
+
+        try {
+            val savedBitmap: Bitmap = bitmap
+            val outputStream = uri?.let { contentResolver.openOutputStream(it) }
+
+            savedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+            Objects.requireNonNull(outputStream)
+
+            Toast.makeText(requireContext(), "Saved successfully", Toast.LENGTH_LONG).show()
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "Image failed to be saved.", Toast.LENGTH_LONG)
+                .show()
+            e.printStackTrace()
+        }
     }
 
     private fun createBalloonAndShow(it: View) {
-        val balloon = createBalloon(requireContext()) {
-            setWidthRatio(1.0f)
-            setHeight(BalloonSizeSpec.WRAP)
-            setText(contentToPresent)
-            setTextColorResource(R.color.white)
-            setTextSize(15f)
-            setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
-            setArrowSize(10)
-            setArrowPosition(0.5f)
-            setPadding(12)
-            setCornerRadius(8f)
-            setBackgroundColorResource(R.color.colorAccent)
-            setBalloonAnimation(BalloonAnimation.ELASTIC)
-            setLifecycleOwner(viewLifecycleOwner)
-            build()
-        }
+        val balloon = requireActivity().createBalloon(contentToPresent)
         balloon.showAlignTop(it)
     }
 
@@ -96,12 +159,15 @@ class CreateQRFragment : Fragment() {
         notesInput = binding.etAttendantNotes.text.toString()
     }
 
-
     private fun formatContent() {
         val dateFormatter = SimpleDateFormat("dd-MMM hh.mm aa")
         val dateFormatted = (dateFormatter.format(Date())).toString()
+
         contentToFormat = "$nameInput/$notesInput/$dateFormatted"
-        contentToPresent = "Name: $nameInput\nNotes: $notesInput \nTime: $dateFormatted"
+
+        contentToPresent = if (notesInput.isEmpty()) {
+            "Name: $nameInput\nTime: $dateFormatted"
+        } else "Name: $nameInput\nNotes: $notesInput \nTime: $dateFormatted"
     }
 
     private fun generateQR(content: String): Bitmap {

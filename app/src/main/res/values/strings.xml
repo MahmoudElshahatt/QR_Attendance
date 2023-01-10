@@ -8,4 +8,5 @@
     <string name="type_a_name">Name</string>
     <string name="download_qr">Download QR</string>
     <string name="notes">Notes</string>
+    <string name="no_image_to_download">There is no image to download.</string>
 </resources>
