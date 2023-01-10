@@ -1,7 +1,7 @@
 package com.example.qrattendance
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.fragment.NavHostFragment
@@ -26,4 +26,5 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.bottom_nav)
         NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.navController)
     }
+
 }

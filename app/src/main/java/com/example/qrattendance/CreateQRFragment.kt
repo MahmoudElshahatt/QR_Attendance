@@ -14,6 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -23,6 +24,8 @@ import com.google.zxing.BarcodeFormat
 import com.google.zxing.WriterException
 import com.google.zxing.qrcode.QRCodeWriter
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -160,7 +163,7 @@ class CreateQRFragment : Fragment() {
     }
 
     private fun formatContent() {
-        val dateFormatter = SimpleDateFormat("dd-MMM hh.mm aa")
+        val dateFormatter = SimpleDateFormat("dd-MMM hh.mm aa", Locale.ENGLISH)
         val dateFormatted = (dateFormatter.format(Date())).toString()
 
         contentToFormat = "$nameInput/$notesInput/$dateFormatted"
@@ -188,5 +191,4 @@ class CreateQRFragment : Fragment() {
         }
         return bitmap
     }
-
 }
