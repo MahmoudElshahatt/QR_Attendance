@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -57,5 +58,15 @@ dependencies {
     implementation "com.github.skydoves:balloon:1.5.2"
     //Zxing
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+    //Room Database
+    def room_version = "2.4.3"
 
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:2.2.6"
 }

@@ -1,7 +1,18 @@
 package com.example.qrattendance
 
+import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
+
+@Entity(tableName = "attendees")
+@Parcelize
 data class Attendee(
-    val name: String? = null,
-    val notes: String? = null,
-    val time: String? = null
-)
+    @PrimaryKey
+    val name: String="",
+    val notes: String="",
+    val time: String=""
+) : Parcelable
+
+
+

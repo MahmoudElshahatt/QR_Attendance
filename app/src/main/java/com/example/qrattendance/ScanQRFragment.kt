@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.qrattendance.databinding.FragmentScanQRBinding
 import com.google.zxing.integration.android.IntentIntegrator
+import com.google.zxing.integration.android.IntentResult
 
 class ScanQRFragment : Fragment() {
     private lateinit var binding: FragmentScanQRBinding
@@ -47,20 +48,24 @@ class ScanQRFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         var result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result.contents != null) {
-            val trainee = result.contents.toString()
-//            if (databaseHelper.addText(trainee, date)) {
-//                Toast.makeText(
-//                    this@MainActivity,
-//                    "Attendance recorded successfully",
-//                    Toast.LENGTH_LONG
-//                ).show()
-//            }
-            binding.edtCode.text = trainee
+            addAttendeeInDataBase(result)
+            Toast.makeText(
+                requireContext(),
+                "Attendee is recorded successfully",
+                Toast.LENGTH_SHORT
+            )
+                .show()
         } else {
-            Toast.makeText(requireContext(), "Error in scanning the QR code", Toast.LENGTH_SHORT)
+            Toast.makeText(requireContext(), "You didn't scan any QR code", Toast.LENGTH_SHORT)
                 .show()
         }
 
+    }
+
+    private fun addAttendeeInDataBase(result: IntentResult) {
+        val attendeeInString = result.contents.toString()
+        val attendee = attendeeInString.serialize()
+        (activity as MainActivity).attendeeViewModel.addAttendee(attendee)
     }
 
 }

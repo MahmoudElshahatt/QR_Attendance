@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@color/attendee_item_color"
+    android:elevation="6dp"
+    app:contentPadding="4dp">
+
+    <TextView
+        android:id="@+id/txt_attendee_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/attendee_name_color"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/txt_attendance_time"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Mahmoud Elshahatt" />
+
+    <TextView
+        android:id="@+id/txt_attendance_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="end"
+        android:textColor="@color/attendee_name_color"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_attendee_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/txt_attendee_name"
+        app:layout_constraintTop_toTopOf="@+id/txt_attendee_name"
+        tools:text="20 jan 2023" />
+
+    <TextView
+        android:id="@+id/txt_attendee_notes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/attendee_name_color"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txt_attendance_time"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txt_attendee_name"
+        app:layout_constraintTop_toBottomOf="@+id/txt_attendee_name"
+        tools:text="Came early" />
+</androidx.constraintlayout.widget.ConstraintLayout>

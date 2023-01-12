@@ -10,4 +10,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bottom_nav_color">#141A22</color>
     <color name="tab_unselected_color">#7C7C7C</color>
+    <color name="attendee_name_color">#91A093</color>
+    <color name="attendee_item_color">#141620</color>
 </resources>
