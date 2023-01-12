@@ -1,6 +1,6 @@
 package com.example.qrattendance.repository
 
-import com.example.qrattendance.Attendee
+import com.example.qrattendance.model.Attendee
 import com.example.qrattendance.database.AttendeeDataBase
 
 class AttendeeRepository(private val db: AttendeeDataBase) {

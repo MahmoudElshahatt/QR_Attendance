@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.qrattendance.Attendee
+import com.example.qrattendance.model.Attendee
 import com.example.qrattendance.databinding.AttendeeItemBinding
 
 class AttendeesAdapter : RecyclerView.Adapter<AttendeesAdapter.NoteViewHolder>() {

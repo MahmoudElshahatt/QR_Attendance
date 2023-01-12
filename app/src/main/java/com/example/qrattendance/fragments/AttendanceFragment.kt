@@ -1,4 +1,4 @@
-package com.example.qrattendance
+package com.example.qrattendance.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.Adapter
+import com.example.qrattendance.MainActivity
 import com.example.qrattendance.adapter.AttendeesAdapter
 import com.example.qrattendance.databinding.FragmentAttendanceBinding
 import com.example.qrattendance.viewModel.AttendeeViewModel

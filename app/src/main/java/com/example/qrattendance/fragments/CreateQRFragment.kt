@@ -1,4 +1,4 @@
-package com.example.qrattendance
+package com.example.qrattendance.fragments
 
 import android.Manifest
 import android.content.ContentResolver
@@ -14,18 +14,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.example.qrattendance.createBalloon
 import com.example.qrattendance.databinding.FragmentCreateQRBinding
+import com.example.qrattendance.hideKeypad
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.WriterException
 import com.google.zxing.qrcode.QRCodeWriter
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 

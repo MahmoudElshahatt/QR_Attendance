@@ -1,5 +1,7 @@
 package com.example.qrattendance
 
+import com.example.qrattendance.model.Attendee
+
 fun String.serialize(): Attendee {
     trim()
     val attendeeArguments = split("/").toTypedArray()

@@ -1,4 +1,4 @@
-package com.example.qrattendance
+package com.example.qrattendance.model
 
 import android.os.Parcelable
 import androidx.room.Entity

@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/scanQRFragment"
-        android:name="com.example.qrattendance.ScanQRFragment"
+        android:name="com.example.qrattendance.fragments.ScanQRFragment"
         android:label="fragment_scan_q_r"
         tools:layout="@layout/fragment_scan_q_r" />
     <fragment
         android:id="@+id/attendanceFragment"
-        android:name="com.example.qrattendance.AttendanceFragment"
+        android:name="com.example.qrattendance.fragments.AttendanceFragment"
         android:label="fragment_attendance"
         tools:layout="@layout/fragment_attendance" />
     <fragment
         android:id="@+id/createQRFragment"
-        android:name="com.example.qrattendance.CreateQRFragment"
+        android:name="com.example.qrattendance.fragments.CreateQRFragment"
         android:label="fragment_create_q_r"
         tools:layout="@layout/fragment_create_q_r" />
 </navigation>

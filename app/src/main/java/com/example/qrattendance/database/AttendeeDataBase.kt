@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.qrattendance.Attendee
+import com.example.qrattendance.model.Attendee
 
 @Database(entities = [Attendee::class], version = 1)
 abstract class AttendeeDataBase : RoomDatabase() {

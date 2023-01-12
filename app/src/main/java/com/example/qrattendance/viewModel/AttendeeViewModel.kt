@@ -2,7 +2,7 @@ package com.example.qrattendance.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.qrattendance.Attendee
+import com.example.qrattendance.model.Attendee
 import com.example.qrattendance.repository.AttendeeRepository
 import kotlinx.coroutines.launch
 

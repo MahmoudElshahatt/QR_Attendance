@@ -7,7 +7,7 @@
     android:background="@color/colorPrimaryDark"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".CreateQRFragment">
+    tools:context=".fragments.CreateQRFragment">
 
     <EditText
         android:id="@+id/et_attendant_name"
