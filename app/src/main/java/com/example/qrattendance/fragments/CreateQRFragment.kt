@@ -27,7 +27,6 @@ import com.google.zxing.qrcode.QRCodeWriter
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class CreateQRFragment : Fragment() {
 
     private lateinit var binding: FragmentCreateQRBinding
@@ -162,14 +161,12 @@ class CreateQRFragment : Fragment() {
     }
 
     private fun formatContent() {
-        val dateFormatter = SimpleDateFormat("dd-MMM hh.mm aa", Locale.ENGLISH)
-        val dateFormatted = (dateFormatter.format(Date())).toString()
 
-        contentToFormat = "$nameInput/$notesInput/$dateFormatted"
+        contentToFormat = "$nameInput/$notesInput"
 
         contentToPresent = if (notesInput.isEmpty()) {
-            "Name: $nameInput\nTime: $dateFormatted"
-        } else "Name: $nameInput\nNotes: $notesInput \nTime: $dateFormatted"
+            "Name: $nameInput"
+        } else "Name: $nameInput\nNotes: $notesInput"
     }
 
     private fun generateQR(content: String): Bitmap {

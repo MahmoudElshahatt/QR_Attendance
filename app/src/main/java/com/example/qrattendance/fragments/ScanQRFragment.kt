@@ -38,7 +38,7 @@ class ScanQRFragment : Fragment() {
             integrator.setPrompt("For flash use volume up key")
             integrator.setBeepEnabled(true)
             integrator.setOrientationLocked(true)
-            integrator.setCaptureActivity(ScanActivity::class.java)
+            integrator.captureActivity = ScanActivity::class.java
             integrator.initiateScan()
         }
     }

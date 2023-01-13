@@ -6,13 +6,15 @@ import com.example.qrattendance.model.Attendee
 import com.example.qrattendance.repository.AttendeeRepository
 import kotlinx.coroutines.launch
 
-class AttendeeViewModel(private val noteRepository: AttendeeRepository) : ViewModel() {
+class AttendeeViewModel(private val attendeeRepository: AttendeeRepository) : ViewModel() {
 
     fun addAttendee(attendee: Attendee) = viewModelScope.launch {
-        noteRepository.addAttendee(attendee)
+        attendeeRepository.addAttendee(attendee)
     }
 
-    fun getAllAttendees() = noteRepository.getAllAttendees()
+    fun getAllAttendees() = attendeeRepository.getAllAttendees()
 
-    //  fun searchNote(query: String) = noteRepository.searchNote(query)
+    fun deleteAllAttendees() = viewModelScope.launch {
+        attendeeRepository.deleteAllAttendees()
+    }
 }

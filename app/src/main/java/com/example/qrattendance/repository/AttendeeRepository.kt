@@ -9,5 +9,5 @@ class AttendeeRepository(private val db: AttendeeDataBase) {
 
     fun getAllAttendees() = db.getAttendeeDao().getAllAttendees()
 
-    // fun searchNote(query: String) = db.getNoteDao().searchNote(query)
+    suspend fun deleteAllAttendees() = db.getAttendeeDao().deleteAllAttendees()
 }

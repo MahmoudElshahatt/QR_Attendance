@@ -13,9 +13,9 @@ interface AttendeeDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addAttendee(attendee: Attendee)
 
-    @Query("SELECT * FROM attendees ORDER BY name DESC")
+    @Query("SELECT * FROM attendees ORDER BY name")
     fun getAllAttendees(): LiveData<List<Attendee>>
 
-//    @Query("SELECT * FROM notes WHERE noteTitle LIKE :query OR noteBody LIKE :query")
-//    fun searchNote(query: String?): LiveData<List<Note>>
+    @Query("DELETE FROM attendees")
+    suspend fun deleteAllAttendees()
 }

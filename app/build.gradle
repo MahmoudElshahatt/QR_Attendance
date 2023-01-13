@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.qrattendance"
-        minSdk 21
+        minSdk 26
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -69,4 +69,8 @@ dependencies {
 
     // Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:2.2.6"
+
+    implementation "com.github.doyaaaaaken:kotlin-csv-jvm:0.9.0"
+
+
 }
