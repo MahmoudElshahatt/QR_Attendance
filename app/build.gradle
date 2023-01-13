@@ -15,7 +15,7 @@ android {
         minSdk 26
         targetSdk 32
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -69,7 +69,7 @@ dependencies {
 
     // Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:2.2.6"
-
+    //CVS R/W for Android
     implementation "com.github.doyaaaaaken:kotlin-csv-jvm:0.9.0"
 
 
