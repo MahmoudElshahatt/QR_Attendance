@@ -15,12 +15,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.qrattendance.MainActivity
+import com.example.qrattendance.*
 import com.example.qrattendance.adapter.AttendeesAdapter
 import com.example.qrattendance.databinding.FragmentAttendanceBinding
-import com.example.qrattendance.exportCSVFile
-import com.example.qrattendance.generateFile
-import com.example.qrattendance.getCSVFileName
 import com.example.qrattendance.model.Attendee
 import com.example.qrattendance.viewModel.AttendeeViewModel
 import java.io.File
@@ -60,18 +57,22 @@ class AttendanceFragment : Fragment() {
             adapter = attendeesAdapter
             attendeeViewModel.getAllAttendees().observe(viewLifecycleOwner) { listOfAttendees ->
                 attendees = listOfAttendees
-                if (attendees.isEmpty()) {
-                    binding.btnDeleteAll.isEnabled = false
-                    binding.btnExportCvs.isEnabled = false
-                } else {
-                    binding.btnDeleteAll.isEnabled = true
-                    binding.btnExportCvs.isEnabled = true
-                }
+                enableButtons()
                 attendeesAdapter.differ.submitList(attendees)
             }
 
         }
 
+    }
+
+    private fun enableButtons() {
+        if (attendees.isEmpty()) {
+            binding.btnDeleteAll.isEnabled = false
+            binding.btnExportCvs.isEnabled = false
+        } else {
+            binding.btnDeleteAll.isEnabled = true
+            binding.btnExportCvs.isEnabled = true
+        }
     }
 
 
@@ -109,7 +110,7 @@ class AttendanceFragment : Fragment() {
             } else {
                 Toast.makeText(
                     requireContext(),
-                    "Please provide required permissions",
+                    getString(R.string.required_permissions),
                     Toast.LENGTH_LONG
                 ).show()
             }
@@ -123,10 +124,10 @@ class AttendanceFragment : Fragment() {
             exportCSVFile(csvFile, attendees)
             val intent = goToFileIntent(requireContext(), csvFile)
             startActivity(intent)
-            Toast.makeText(requireContext(), "CSV File is generated", Toast.LENGTH_SHORT)
+            Toast.makeText(requireContext(), getString(R.string.csv_generated), Toast.LENGTH_SHORT)
                 .show()
         } else {
-            Toast.makeText(requireContext(), "CSV File can't be generated", Toast.LENGTH_SHORT)
+            Toast.makeText(requireContext(), getString(R.string.csv_ungenerated), Toast.LENGTH_SHORT)
                 .show()
         }
     }
@@ -148,7 +149,7 @@ class AttendanceFragment : Fragment() {
         val alert = AlertDialog.Builder(requireContext())
         alert.apply {
             setMessage("Are You sure you want to delete all attendees?")
-            setPositiveButton("Delete") { dialog, _ ->
+            setPositiveButton("Clear All") { dialog, _ ->
                 attendeeViewModel.deleteAllAttendees()
             }
             setNegativeButton("Cancel") { dialog, _ ->

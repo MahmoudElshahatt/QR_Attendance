@@ -11,4 +11,7 @@
     <string name="no_image_to_download">There is no image to download.</string>
     <string name="clear_attendance">Clear Attendance</string>
     <string name="export_cvs">Export CVS</string>
+    <string name="required_permissions">Please provide required permissions</string>
+    <string name="csv_generated">CSV File is generated</string>
+    <string name="csv_ungenerated">CSV File can\'t be generated</string>
 </resources>
