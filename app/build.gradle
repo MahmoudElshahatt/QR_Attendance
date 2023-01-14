@@ -54,10 +54,10 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.5.2"
     //QR Library Generator
     implementation 'com.google.zxing:core:3.4.0'
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
     //Balloon Library
     implementation "com.github.skydoves:balloon:1.5.2"
-    //Zxing
-    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+
     //Room Database
     def room_version = "2.4.3"
 
