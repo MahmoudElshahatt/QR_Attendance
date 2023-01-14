@@ -1,6 +1,6 @@
 # Description
-QR Attendance is a user-friendly android app that uses QR code scanning to track attendance. 
-It has an intuitive interface, and keeps a detailed record that can be exported. It simplifies the attendance-taking process.
+QR Attendance is an android app that streamlines the attendance-taking process by using QR code scanning to track attendance of students or employees. The app is designed with an intuitive user interface that allows for easy navigation and is suitable for users of all technical abilities. The detailed attendance record is easily exportable and shareable, making it a reliable and efficient tool for any organization. With QR Attendance, attendance tracking becomes a breeze.
+
 # App Preview
 
 <img src="https://user-images.githubusercontent.com/79477855/208084106-1f930b49-cef6-413b-a57b-1a122be07641.gif" width="350" height="680">
