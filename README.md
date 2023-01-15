@@ -23,8 +23,8 @@ QR Attendance is an android app that streamlines the attendance-taking process b
 * **MVVM Architecture (View - ViewModel - Model) together with Events that decide what Fragment or Activity should do**.
 * **ZXing is an open-source, multi-format 1D/2D barcode image processing library**.
 * **Room Database is a persistence library that provides an abstraction layer over the SQLite database to allow a more robust database.**.
-* **View Binding : a feature that allows you to more easily write code that interacts with views**.
-* **Kotlin Csv;Pure Kotlin CSV Reader/Writer**.
+* **View Binding is a feature that allows you to more easily write code that interacts with views**.
+* **Kotlin Csv is a pure Kotlin CSV Reader/Writer**.
 * **Balloon animation library**.
 
 
