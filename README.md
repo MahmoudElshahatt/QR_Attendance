@@ -3,7 +3,7 @@ QR Attendance is an android app that streamlines the attendance-taking process b
 
 # App Preview
 
-<img src="https://user-images.githubusercontent.com/79477855/212558704-4daeaa26-cbf9-4e3e-aa7f-4904b0a1b808.gif" width="350" height="680"> <img src="https://user-images.githubusercontent.com/79477855/212558704-4daeaa26-cbf9-4e3e-aa7f-4904b0a1b808.gif" width="350" height="680">
+<img src="https://user-images.githubusercontent.com/79477855/212558704-4daeaa26-cbf9-4e3e-aa7f-4904b0a1b808.gif" width="350" height="680"> <img src="https://user-images.githubusercontent.com/79477855/212559155-dee1cb96-954a-4a1f-9451-345747e75de3.gif" width="350" height="680">
 
 # Screenshots
 
