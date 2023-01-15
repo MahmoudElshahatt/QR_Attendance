@@ -11,8 +11,8 @@ import java.util.*
 fun String.serialize(): Attendee {
     trim()
     val attendeeArguments = split("/").toTypedArray()
-    var attendee = Attendee()
-    if (attendeeArguments.size == 3) {
+    var attendee:Attendee = Attendee()
+    if (attendeeArguments.isNotEmpty()) {
         attendee = Attendee(
             name = attendeeArguments[0],
             notes = attendeeArguments[1],
