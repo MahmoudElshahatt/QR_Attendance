@@ -3,7 +3,7 @@ QR Attendance is an android app that streamlines the attendance-taking process b
 
 # App Preview
 
-<img src="https://user-images.githubusercontent.com/79477855/208084106-1f930b49-cef6-413b-a57b-1a122be07641.gif" width="350" height="680">
+<img src="https://user-images.githubusercontent.com/79477855/212558704-4daeaa26-cbf9-4e3e-aa7f-4904b0a1b808.gif" width="350" height="680"> <img src="https://user-images.githubusercontent.com/79477855/212558704-4daeaa26-cbf9-4e3e-aa7f-4904b0a1b808.gif" width="350" height="680">
 
 # Screenshots
 
@@ -19,6 +19,7 @@ QR Attendance is an android app that streamlines the attendance-taking process b
 # Tech stack & Open-source libraries
 
 * **100% Kotlin based**.
+* **Camera Api for the device**.
 * **MVVM Architecture (View - ViewModel - Model) together with Events that decide what Fragment or Activity should do**.
 * **ZXing is an open-source, multi-format 1D/2D barcode image processing library**.
 * **Room Database is a persistence library that provides an abstraction layer over the SQLite database to allow a more robust database.**.
